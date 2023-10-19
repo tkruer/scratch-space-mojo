@@ -1,5 +1,6 @@
 import random
 import math
+import time
 
 def box_muller():
     """Generate a sample from a standard normal distribution using the Box-Muller transform."""
@@ -35,11 +36,8 @@ def black_scholes_call(S, K, T, r, sigma):
     call_price = S * monte_carlo_cdf(d1) - K * math.exp(-r * T) * monte_carlo_cdf(d2)
     return call_price
 
-S = 100      # Current stock price
-K = 100      # Option strike price
-T = 1        # Time to expiration (in years)
-r = 0.05     # Risk-free rate (5% annualized)
-sigma = 0.2  # Volatility (20% annualized)
-
-call_option_price = black_scholes_call(S, K, T, r, sigma)
-print(f"The theoretical price of the European call option is: ${call_option_price:.2f}")
+def main():
+    start = time.time()    
+    call_option_price = black_scholes_call(100, 100, 1, 0.05, 0.2)
+    end = time.time()
+    print(f"The theoretical price of the European call option is: ${call_option_price:.2f}. It took {end - start:.2f} seconds to compute.")

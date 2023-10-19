@@ -1,5 +1,6 @@
 from math import sqrt, exp, log, cos, sin
 from random import rand, random_float64
+from time import now
 
 """
     We don't have a norm cdf in the standard library so we can just create a monte_carlo funciton to approximate it.
@@ -31,5 +32,7 @@ fn black_scholes_call(stock_price: Float64, strike_price: Float64, exp_time_yr: 
     return call_price
 
 fn main():
+    let timeNow: Float64 = now()
     let result: Float64 = black_scholes_call(stock_price=100, strike_price=100, exp_time_yr=1, ann_risk_free_rate=0.05, volt_ann_stock=0.2)
-    print("The theoretical price of the European call option is: $", result)    
+    let timeEnd: Float64 = now()
+    print("The theoretical price of the European call option is: $", result, " and it took ", (timeEnd - timeNow) / 1_000_000_000, " seconds to calculate.")    
