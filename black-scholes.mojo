@@ -32,9 +32,4 @@ fn black_scholes_call(stock_price: Float64, strike_price: Float64, exp_time_yr: 
 
 fn main():
     let result: Float64 = black_scholes_call(stock_price=100, strike_price=100, exp_time_yr=1, ann_risk_free_rate=0.05, volt_ann_stock=0.2)
-    print("The theoretical price of the European call option is: $", result)
-    print("""
-        If it works, it works.       
-    """)
-    
-    
+    print("The theoretical price of the European call option is: $", result)    
